@@ -403,3 +403,28 @@ Hibernate: alter table if exists user_roles add constraint FKgsmpf944rieaqg7hi70
 [2m2026-03-09T23:19:37.210+05:30[0;39m [32m INFO[0;39m [35m34744[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [2m[0;39m[36mo.s.b.w.embedded.tomcat.TomcatWebServer [0;39m [2m:[0;39m Tomcat started on port 8080 (http) with context path ''
 [2m2026-03-09T23:19:37.211+05:30[0;39m [32m INFO[0;39m [35m34744[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [2m[0;39m[36mc.example.hello.HelloWorldApplication   [0;39m [2m:[0;39m Started HelloWorldApplication in 0.376 seconds (process running for 7447.553)
 [2m2026-03-09T23:19:37.212+05:30[0;39m [32m INFO[0;39m [35m34744[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [2m[0;39m[36m.ConditionEvaluationDeltaLoggingListener[0;39m [2m:[0;39m Condition evaluation unchanged
+[2m2026-03-09T23:20:05.938+05:30[0;39m [32m INFO[0;39m [35m34744[0;39m [2m---[0;39m [2m[   File Watcher][0;39m [2m[0;39m[36mrtingClassPathChangeChangedEventListener[0;39m [2m:[0;39m Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2m2026-03-09T23:20:05.949+05:30[0;39m [32m INFO[0;39m [35m34744[0;39m [2m---[0;39m [2m[      Thread-32][0;39m [2m[0;39m[36mj.LocalContainerEntityManagerFactoryBean[0;39m [2m:[0;39m Closing JPA EntityManagerFactory for persistence unit 'default'
+[2m2026-03-09T23:20:05.954+05:30[0;39m [33m WARN[0;39m [35m34744[0;39m [2m---[0;39m [2m[      Thread-32][0;39m [2m[0;39m[36mo.s.b.f.support.DisposableBeanAdapter   [0;39m [2m:[0;39m Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+[2m2026-03-09T23:20:05.954+05:30[0;39m [32m INFO[0;39m [35m34744[0;39m [2m---[0;39m [2m[      Thread-32][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-8 - Shutdown initiated...
+[2m2026-03-09T23:20:05.955+05:30[0;39m [32m INFO[0;39m [35m34744[0;39m [2m---[0;39m [2m[      Thread-32][0;39m [2m[0;39m[36mcom.zaxxer.hikari.HikariDataSource      [0;39m [2m:[0;39m HikariPool-8 - Shutdown completed.
+Exception in thread "restartedMain" java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:119)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	SpringApplication cannot be resolved
+
+	at com.example.hello.HelloWorldApplication.main(HelloWorldApplication.java:9)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	... 2 more
+Exception in thread "restartedMain" java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:119)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	SpringApplication cannot be resolved
+
+	at com.example.hello.HelloWorldApplication.main(HelloWorldApplication.java:9)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	... 2 more
