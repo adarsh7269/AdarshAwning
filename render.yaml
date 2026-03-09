@@ -1,0 +1,25 @@
+services:
+  # Backend Service (Spring Boot)
+  - type: web
+    name: adarsh-awning-backend
+    runtime: docker
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    plan: free
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+
+  # Frontend Service (React + Nginx)
+  - type: web
+    name: adarsh-awning-frontend
+    runtime: docker
+    dockerContext: ./frontend
+    dockerfilePath: ./frontend/Dockerfile
+    plan: free
+    envVars:
+      - key: BACKEND_URL
+        fromService:
+          name: adarsh-awning-backend
+          type: web
+          property: url
