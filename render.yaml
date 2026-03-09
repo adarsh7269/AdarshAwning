@@ -17,9 +17,7 @@ services:
     dockerContext: ./frontend
     dockerfilePath: ./frontend/Dockerfile
     plan: free
+    # Set BACKEND_URL in the Render dashboard after the backend service is live
     envVars:
-      - key: BACKEND_URL
-        fromService:
-          name: adarsh-awning-backend
-          type: web
-          property: url
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
