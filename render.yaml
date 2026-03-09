@@ -9,6 +9,12 @@ services:
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: adarsh-awning-db
+          property: connectionString
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: update
 
   # Frontend Service (React + Nginx)
   - type: web
@@ -21,3 +27,7 @@ services:
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
+
+databases:
+  - name: adarsh-awning-db
+    plan: free

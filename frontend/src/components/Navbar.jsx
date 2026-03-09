@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 import './Navbar.css'
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
+    const { user, logout } = useAuth()
     const location = useLocation()
 
     useEffect(() => {
@@ -50,6 +50,16 @@ export default function Navbar() {
                             </NavLink>
                         </li>
                     ))}
+                    {user ? (
+                        <li className="navbar__user">
+                            <span className="navbar__username">Hi, {user.username}</span>
+                            <button onClick={logout} className="navbar__link logout-btn">Logout</button>
+                        </li>
+                    ) : (
+                        <li>
+                            <NavLink to="/login" className="navbar__link">Login</NavLink>
+                        </li>
+                    )}
                     <li>
                         <NavLink to="/contact" className="navbar__cta btn-primary">
                             Get a Quote

@@ -1,12 +1,26 @@
 version: '3.8'
 
 services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=adarsh
+      - POSTGRES_PASSWORD=awning_pass
+      - POSTGRES_DB=adarsh_awning
+    ports:
+      - "5432:5432"
+
   backend:
     build: ./backend
     ports:
       - "8080:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/adarsh_awning
+      - SPRING_DATASOURCE_USERNAME=adarsh
+      - SPRING_DATASOURCE_PASSWORD=awning_pass
+    depends_on:
+      - db
 
   frontend:
     build: ./frontend

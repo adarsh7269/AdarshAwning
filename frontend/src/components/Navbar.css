@@ -65,7 +65,44 @@
 }
 
 .navbar__link--active {
-    color: var(--gold);
+    color: var(--gold) !important;
+}
+
+.navbar__user {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 16px;
+}
+
+.navbar__username {
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.logout-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 12px !important;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px !important;
+}
+
+.logout-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold) !important;
+}
+
+@media (max-width: 991px) {
+    .navbar__user {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+    }
 }
 
 .navbar__link--active::after {
