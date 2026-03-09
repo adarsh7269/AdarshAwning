@@ -9,12 +9,26 @@ services:
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
-      - key: SPRING_DATASOURCE_URL
+      - key: DB_HOST
         fromDatabase:
           name: adarsh-awning-db
-          property: jdbcConnectionString
-      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
-        value: update
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: adarsh-awning-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: adarsh-awning-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: adarsh-awning-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: adarsh-awning-db
+          property: password
 
   # Frontend Service (React + Nginx)
   - type: web
