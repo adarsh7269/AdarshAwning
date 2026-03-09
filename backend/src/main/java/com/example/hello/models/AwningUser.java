@@ -5,7 +5,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "awning_users")
-public class User {
+public class AwningUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

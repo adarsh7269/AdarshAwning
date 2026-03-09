@@ -1,7 +1,7 @@
 package com.example.hello.security;
 
 import com.example.hello.dto.*;
-import com.example.hello.models.User;
+import com.example.hello.models.AwningUser;
 import com.example.hello.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -69,7 +69,7 @@ public class AuthController {
         }
 
         // Create new user's account
-        User user = new User();
+        AwningUser user = new AwningUser();
         user.setUsername(signUpRequest.getUsername());
         user.setEmail(signUpRequest.getEmail());
         user.setPassword(encoder.encode(signUpRequest.getPassword()));
