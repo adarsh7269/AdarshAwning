@@ -1,8 +1,18 @@
+import { useState } from 'react'
 import './Home.css'
+import EstimateModal from '../components/EstimateModal'
+import TryOnModal from '../components/TryOnModal'
+import ReviewsSection from '../components/ReviewsSection'
 
 export default function Home() {
+    const [estimateOpen, setEstimateOpen] = useState(false)
+    const [tryOnOpen, setTryOnOpen] = useState(false)
+
     return (
         <div className="home-page page-enter">
+            <EstimateModal isOpen={estimateOpen} onClose={() => setEstimateOpen(false)} />
+            <TryOnModal isOpen={tryOnOpen} onClose={() => setTryOnOpen(false)} />
+
             <section className="hero-section">
                 <div className="hero-overlay"></div>
                 <img src="/images/hero_awning.png" alt="Adarsh Awning Hero" className="hero-image" />
@@ -12,9 +22,22 @@ export default function Home() {
                     <p className="hero-description">
                         Elevate your storefront with Adarsh Awning. We specialize in high-quality, durable, and stylish retractable and fixed awnings tailored to your brand.
                     </p>
-                    <div className="hero-btns">
-                        <a href="/contact" className="btn-primary">Get Free Estimate</a>
-                        <a href="/blog" className="btn-outline">View Our Work</a>
+                    <div className="hero-btns" style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
+                        <button
+                            id="estimate-btn"
+                            className="btn-primary"
+                            onClick={() => setEstimateOpen(true)}
+                        >
+                            Get Free Estimate
+                        </button>
+                        <button
+                            id="tryon-btn"
+                            className="btn-outline"
+                            onClick={() => setTryOnOpen(true)}
+                            style={{ background: 'rgba(255,255,255,0.1)' }}
+                        >
+                            ✨ Try On Awning
+                        </button>
                     </div>
                 </div>
             </section>
@@ -44,6 +67,8 @@ export default function Home() {
                 </div>
             </section>
 
+            <ReviewsSection />
+
             <section className="cta-banner section">
                 <div className="container">
                     <div className="cta-box">
@@ -56,3 +81,4 @@ export default function Home() {
         </div>
     )
 }
+

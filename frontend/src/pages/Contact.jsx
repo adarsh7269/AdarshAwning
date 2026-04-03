@@ -18,15 +18,15 @@ export default function Contact() {
                         <div className="contact-details">
                             <div className="contact-item">
                                 <p className="contact-item-label">Visit Us</p>
-                                <p>123 Market Street, Mumbai 400001</p>
+                                <p>97, Chandra Sheakher Azad Colony New Patel Nagar, Dehradun, Uttarakhand, 248001</p>
                             </div>
                             <div className="contact-item">
                                 <p className="contact-item-label">Call Us</p>
-                                <p>+91 98765 43210</p>
+                                <p>+91 70886 70226</p>
                             </div>
                             <div className="contact-item">
                                 <p className="contact-item-label">Email Us</p>
-                                <p>hello@adarshaawning.com</p>
+                                <p>adarshawning@gmail.com</p>
                             </div>
                         </div>
                     </div>

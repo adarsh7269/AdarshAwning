@@ -1,0 +1,386 @@
+/* Overlay */
+.tom-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(13, 27, 42, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: emFadeIn 0.3s ease forwards;
+}
+
+/* Modal */
+.tom-modal {
+    background: #fff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+    animation: emSlideUp 0.3s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+/* Header */
+.tom-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 24px 32px 20px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.tom-eyebrow {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+}
+
+.tom-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin: 0;
+}
+
+.tom-close {
+    background: var(--gray-100);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--gray-700);
+    transition: var(--transition);
+}
+
+.tom-close:hover {
+    background: var(--gray-200);
+    color: var(--navy);
+}
+
+/* Body Layout */
+.tom-body {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+@media (max-width: 800px) {
+    .tom-body { grid-template-columns: 1fr; }
+}
+
+/* -------------------------------------
+   CANVAS & CSS ART SCENES
+-------------------------------------- */
+.tom-canvas {
+    background: #eef5fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    animation: emFadeIn 0.4s ease;
+}
+
+.container-relative {
+    position: relative;
+}
+
+/* THE AWNING (Shared Dynamic Element) */
+.awning {
+    position: absolute;
+    z-index: 10;
+    transition: background 0.5s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    background-size: 100% 100% !important; /* Allow percentage-based stripes to stretch properly */
+}
+
+/* Optional valance (the hanging decorative edge) */
+.awning-valance {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background-size: 100% 100% !important;
+    background-position: bottom left !important;
+    /* Create scalloped edge */
+    mask-image: radial-gradient(circle at 10px 15px, transparent 10px, black 11px);
+    mask-size: 20px 20px;
+    mask-repeat: repeat-x;
+    -webkit-mask-image: radial-gradient(circle at 10px 15px, transparent 10px, black 11px);
+    -webkit-mask-size: 20px 20px;
+    -webkit-mask-repeat: repeat-x;
+}
+
+
+/* --- 1. HOME SCENE --- */
+.scene-home .house-roof {
+    width: 240px;
+    height: 0;
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-bottom: 100px solid #c0392b;
+    margin-bottom: -1px; /* fix gap */
+}
+.scene-home .house-body {
+    width: 200px;
+    height: 180px;
+    background: #fdfbf7;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    border: 1px solid #e0dcd3;
+}
+.scene-home .house-window {
+    width: 90px;
+    height: 70px;
+    background: #6abbd0;
+    border: 4px solid #fff;
+    margin-bottom: auto;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+}
+.scene-home .window-pane { background: rgba(255,255,255,0.2); }
+.scene-home .house-door {
+    width: 50px;
+    height: 80px;
+    background: #8e6c55;
+    border-radius: 4px 4px 0 0;
+}
+.scene-home .awning {
+    width: 140px;
+    height: 50px;
+    top: -15px;
+    left: -25px;
+    transform: perspective(200px) rotateX(45deg);
+    transform-origin: top center;
+    border-radius: 2px;
+}
+
+
+/* --- 2. SHOP SCENE --- */
+.scene-shop .shop-sign {
+    width: 280px;
+    padding: 12px 0;
+    background: #1a1a1a;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    letter-spacing: 4px;
+    text-align: center;
+    border-radius: 4px 4px 0 0;
+}
+.scene-shop .shop-front {
+    width: 260px;
+    height: 200px;
+    background: #e6e4e0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 16px;
+    border: 2px solid #5a5a5a;
+    border-top: none;
+}
+.scene-shop .shop-window {
+    width: 130px;
+    height: 140px;
+    background: #8bdaeb;
+    margin-bottom: 20px;
+    border: 4px solid #fff;
+    position: relative;
+}
+.scene-shop .shop-display {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: rgba(0,0,0,0.1);
+}
+.scene-shop .shop-door {
+    width: 65px;
+    height: 160px;
+    background: rgba(139,218,235,0.7);
+    border: 4px solid #fff;
+}
+.scene-shop .awning-shop {
+    width: 320px;
+    height: 80px;
+    top: -5px; /* sit just below the sign */
+    left: -30px;
+    transform: perspective(300px) rotateX(55deg);
+    transform-origin: top center;
+}
+
+
+/* --- 3. CAR PARKING SCENE --- */
+.scene-car .carport-roof {
+    width: 360px;
+    height: 20px;
+    margin-bottom: 40px;
+}
+.scene-car .awning-car {
+    width: 100%;
+    height: 80px;
+    transform: perspective(400px) rotateX(65deg);
+    transform-origin: top center;
+}
+.scene-car .carport-poles {
+    position: absolute;
+    width: 280px;
+    height: 180px;
+    border-left: 8px solid #a0a0a0;
+    border-right: 8px solid #a0a0a0;
+    bottom: 0;
+    z-index: 1;
+}
+.scene-car .car-shape {
+    width: 200px;
+    height: 70px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 10px;
+}
+.scene-car .car-top {
+    width: 120px;
+    height: 35px;
+    background: #34495e;
+    border-radius: 40px 30px 0 0;
+    margin-left: 30px;
+}
+.scene-car .car-bottom {
+    width: 100%;
+    height: 35px;
+    background: #2c3e50;
+    border-radius: 12px 20px 4px 4px;
+    position: relative;
+}
+.scene-car .wheel {
+    width: 30px;
+    height: 30px;
+    background: #111;
+    border-radius: 50%;
+    border: 4px solid #bdc3c7;
+    position: absolute;
+    bottom: -10px;
+}
+.scene-car .wheel-left { left: 25px; }
+.scene-car .wheel-right { right: 25px; }
+
+
+/* -------------------------------------
+   EDITOR PANEL 
+-------------------------------------- */
+.tom-editor {
+    background: #fafafa;
+    padding: 24px 32px;
+    border-left: 1px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+}
+
+.tom-control-group {
+    margin-bottom: 24px;
+}
+
+.tom-control-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+/* Tabs */
+.tom-tabs {
+    display: flex;
+    background: #e6e6e6;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.tom-tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-500);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tom-tab:hover { color: var(--navy); }
+
+.tom-tab.active {
+    background: #fff;
+    color: var(--navy);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Color Palette */
+.tom-colors {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.tom-color-btn {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 1px var(--gray-200);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.tom-color-btn:hover {
+    transform: scale(1.1);
+}
+
+.tom-color-btn.active {
+    box-shadow: 0 0 0 2px var(--gold);
+    transform: scale(1.1);
+}
+
+/* Actions */
+.tom-actions {
+    margin-top: auto;
+    padding-top: 16px;
+}

@@ -19,8 +19,11 @@ export default function Navbar() {
         setMenuOpen(false)
     }, [location])
 
+    const isHome = location.pathname === '/'
+    const isSolid = scrolled || !isHome
+
     return (
-        <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+        <nav className={`navbar ${isSolid ? 'navbar--scrolled' : ''}`}>
             <div className="navbar__inner container">
                 <NavLink to="/" className="navbar__logo">
                     <span className="navbar__logo-icon">⬟</span>

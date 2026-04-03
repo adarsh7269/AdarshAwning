@@ -44,10 +44,10 @@ export default function Footer() {
                     <div className="footer__col">
                         <h4>Contact</h4>
                         <ul className="footer__contact-list">
-                            <li>📍 123 Market Street, Mumbai 400001</li>
-                            <li>📞 +91 98765 43210</li>
-                            <li>✉️ hello@adarshaawning.com</li>
-                            <li>🕐 Mon–Sat: 9 AM – 6 PM</li>
+                            <li>📍 97, Chandra Sheakher Azad Colony New Patel Nagar, Dehradun, Uttarakhand, 248001</li>
+                            <li>📞 +91 70886 70226</li>
+                            <li>✉️ adarshawning@gmail.com</li>
+                            <li>🕐 Mon–Sun: 9 AM – 6 PM</li>
                         </ul>
                     </div>
                 </div>
